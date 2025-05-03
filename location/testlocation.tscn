@@ -1,0 +1,75 @@
+[gd_scene load_steps=8 format=3 uid="uid://cfw2et41e2f5u"]
+
+[ext_resource type="Texture2D" uid="uid://2otagx60jg1f" path="res://location/image/photo_2025-05-02_11-04-27.jpg" id="1_dg1e7"]
+[ext_resource type="Script" uid="uid://bouwpvkfb613i" path="res://location/testlocation.gd" id="1_ks64o"]
+[ext_resource type="PackedScene" uid="uid://celtwsx6ewuek" path="res://hero/hero.tscn" id="2_g83l1"]
+[ext_resource type="PackedScene" uid="uid://ddbf0k2ge5bxu" path="res://location/door.tscn" id="3_815jk"]
+[ext_resource type="PackedScene" uid="uid://c1wjchtcdix48" path="res://location/out_door.tscn" id="5_sl1ao"]
+[ext_resource type="Texture2D" uid="uid://cadb55xcekydp" path="res://hero/item/Item__07.png" id="6_gollk"]
+[ext_resource type="PackedScene" uid="uid://da3hd5ht7ta6x" path="res://hero/item/test_item.tscn" id="7_omn8u"]
+
+[node name="testlocation" type="Node2D"]
+script = ExtResource("1_ks64o")
+
+[node name="Photo2025-05-0211-04-27" type="Sprite2D" parent="."]
+position = Vector2(322, 264.147)
+scale = Vector2(0.896875, 0.920723)
+texture = ExtResource("1_dg1e7")
+offset = Vector2(282.091, 65.007)
+
+[node name="Photo2025-05-0211-04-28" type="Sprite2D" parent="."]
+position = Vector2(1454, 264)
+scale = Vector2(0.853, 0.921)
+texture = ExtResource("1_dg1e7")
+offset = Vector2(282.091, 65.007)
+
+[node name="Photo2025-05-0211-04-28" type="Sprite2D" parent="Photo2025-05-0211-04-28"]
+position = Vector2(-1325.41, 712.269)
+scale = Vector2(1.05852, 1.00128)
+texture = ExtResource("1_dg1e7")
+offset = Vector2(282.091, 65.007)
+
+[node name="Hero" parent="." instance=ExtResource("2_g83l1")]
+position = Vector2(211, 437)
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+blend_mode = 1
+height = 0.78
+
+[node name="Door" parent="." instance=ExtResource("3_815jk")]
+position = Vector2(691, 399)
+
+[node name="Out_Door" parent="." instance=ExtResource("5_sl1ao")]
+position = Vector2(689, 1005)
+
+[node name="TextEdit2" type="TextEdit" parent="."]
+offset_left = 375.0
+offset_top = 956.0
+offset_right = 525.0
+offset_bottom = 1040.0
+theme_override_colors/word_highlighted_color = Color(0, 0, 0, 1)
+theme_override_colors/background_color = Color(0, 0, 0, 0)
+theme_override_font_sizes/font_size = 29
+text = "Купе"
+
+[node name="TextEdit" type="TextEdit" parent="."]
+offset_left = 403.0
+offset_top = 271.0
+offset_right = 553.0
+offset_bottom = 355.0
+theme_override_colors/word_highlighted_color = Color(0, 0, 0, 1)
+theme_override_colors/background_color = Color(0, 0, 0, 0)
+theme_override_font_sizes/font_size = 29
+text = "Коридор"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Item07" type="Sprite2D" parent="CanvasLayer"]
+visible = false
+texture_filter = 1
+position = Vector2(145.125, 544.375)
+scale = Vector2(5.48437, 5.45312)
+texture = ExtResource("6_gollk")
+
+[node name="Item" parent="." instance=ExtResource("7_omn8u")]
+position = Vector2(915, 1152)

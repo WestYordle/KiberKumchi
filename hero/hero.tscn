@@ -1,0 +1,134 @@
+[gd_scene load_steps=23 format=3 uid="uid://celtwsx6ewuek"]
+
+[ext_resource type="Texture2D" uid="uid://baeqmng4f8j3p" path="res://hero/animation/idle/1а.png" id="1_b5fwp"]
+[ext_resource type="Script" uid="uid://drbxb2hnfntk8" path="res://hero/hero.gd" id="1_iyby7"]
+[ext_resource type="Texture2D" uid="uid://bne8avewkei0j" path="res://hero/animation/idle/2а.png" id="2_iyby7"]
+[ext_resource type="Texture2D" uid="uid://bk6djnyalut6x" path="res://hero/animation/idle/3а.png" id="3_uy2is"]
+[ext_resource type="Texture2D" uid="uid://ck05ngf3ybr8v" path="res://hero/animation/idle/4а.png" id="4_yuv4n"]
+[ext_resource type="Texture2D" uid="uid://bn5r0fw0on1ms" path="res://hero/animation/idle/5а.png" id="5_g74me"]
+[ext_resource type="Texture2D" uid="uid://co8my2c0ogoiy" path="res://hero/animation/idle/6а.png" id="6_g8rit"]
+[ext_resource type="Texture2D" uid="uid://bosbo1cu5ir2" path="res://hero/animation/idle/7а.png" id="7_33f78"]
+[ext_resource type="Texture2D" uid="uid://kohf26dhbrb3" path="res://hero/animation/idle/8а.png" id="8_femmg"]
+[ext_resource type="Texture2D" uid="uid://xwp0j02eg8n0" path="res://hero/animation/idle/9а.png" id="9_s3u2y"]
+[ext_resource type="Texture2D" uid="uid://c3lms5wlomx5g" path="res://hero/animation/idle/10а.png" id="10_8amgs"]
+[ext_resource type="Texture2D" uid="uid://c0ansolxrmblt" path="res://hero/animation/idle/11а.png" id="11_uas8y"]
+[ext_resource type="Texture2D" uid="uid://s2eca1r3levk" path="res://hero/animation/walking/1шаг.png" id="13_iyby7"]
+[ext_resource type="Texture2D" uid="uid://bcfbbbo6qehi4" path="res://hero/animation/walking/2шаг.png" id="14_uy2is"]
+[ext_resource type="Texture2D" uid="uid://cij3r4bkiu6je" path="res://hero/animation/walking/3шаг.png" id="15_yuv4n"]
+[ext_resource type="Texture2D" uid="uid://c2gsy3sy1v18y" path="res://hero/animation/walking/4шаг.png" id="16_g74me"]
+[ext_resource type="Texture2D" uid="uid://d1i1w1tddckd0" path="res://hero/animation/walking/5шаг.png" id="17_g8rit"]
+[ext_resource type="Texture2D" uid="uid://b5i4vg8p0y4tq" path="res://hero/animation/walking/6шаг.png" id="18_33f78"]
+[ext_resource type="Texture2D" uid="uid://bhsk7p8pbhgd8" path="res://hero/flashlight/circle.png" id="19_uy2is"]
+[ext_resource type="Texture2D" uid="uid://83cu3kcjp2wa" path="res://hero/flashlight/Black_triangle_with_thick_white_border.svg (2).png" id="20_yuv4n"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_td813"]
+size = Vector2(210, 344)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_j7qxw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_b5fwp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_iyby7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_uy2is")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_yuv4n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_g74me")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_g8rit")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_33f78")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_femmg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_s3u2y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_8amgs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_uas8y")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_iyby7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_uy2is")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_yuv4n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_g74me")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_g8rit")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_33f78")
+}],
+"loop": false,
+"name": &"walking",
+"speed": 5.0
+}]
+
+[node name="hero" type="CharacterBody2D"]
+script = ExtResource("1_iyby7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_td813")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(1, -3.8147e-06)
+scale = Vector2(0.194245, 0.190117)
+sprite_frames = SubResource("SpriteFrames_j7qxw")
+animation = &"walking"
+autoplay = "idle"
+flip_h = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(-8, -109)
+process_callback = 0
+limit_left = 0
+limit_right = 2259
+drag_horizontal_enabled = true
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(101, -58)
+scale = Vector2(12.025, 12.825)
+energy = 2.0
+texture = ExtResource("19_uy2is")
+texture_scale = 0.1
+
+[node name="PointLight2DRight" type="PointLight2D" parent="."]
+position = Vector2(450, -35)
+rotation = 4.71239
+scale = Vector2(0.498349, 1.19485)
+energy = 0.5
+texture = ExtResource("20_yuv4n")
+
+[node name="PointLight2DLeft" type="PointLight2D" parent="."]
+visible = false
+position = Vector2(-450, -35)
+rotation = 1.5708
+scale = Vector2(0.498, 1.195)
+energy = 0.24
+texture = ExtResource("20_yuv4n")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]

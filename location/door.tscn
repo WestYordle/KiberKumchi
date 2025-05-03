@@ -1,0 +1,52 @@
+[gd_scene load_steps=7 format=3 uid="uid://ddbf0k2ge5bxu"]
+
+[ext_resource type="Script" uid="uid://cv5ht7e8nx0p1" path="res://location/door.gd" id="1_7dv8d"]
+[ext_resource type="Texture2D" uid="uid://f1xobwyiscmm" path="res://buttons/keyboard_15.png" id="2_iymxo"]
+[ext_resource type="Texture2D" uid="uid://l6qniwy35bk2" path="res://buttons/keyboard_116.png" id="3_1ppk2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7dv8d"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ryima"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_iymxo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_1ppk2")
+}],
+"loop": true,
+"name": &"ClickButton",
+"speed": 2.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mx6b2"]
+size = Vector2(224, 334)
+
+[node name="door" type="CharacterBody2D"]
+collision_layer = 0
+script = ExtResource("1_7dv8d")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+light_mask = 0
+visibility_layer = 0
+shape = SubResource("RectangleShape2D_7dv8d")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+visible = false
+light_mask = 3
+texture_filter = 1
+position = Vector2(1, -183)
+scale = Vector2(1.4375, 1.625)
+sprite_frames = SubResource("SpriteFrames_ryima")
+animation = &"ClickButton"
+autoplay = "ClickButton"
+frame_progress = 0.17027
+
+[node name="SearchPlayer" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SearchPlayer"]
+shape = SubResource("RectangleShape2D_mx6b2")
+
+[connection signal="body_entered" from="SearchPlayer" to="." method="_on_search_player_body_entered"]
+[connection signal="body_exited" from="SearchPlayer" to="." method="_on_search_player_body_exited"]

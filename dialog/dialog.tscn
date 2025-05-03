@@ -1,0 +1,39 @@
+[gd_scene load_steps=3 format=3 uid="uid://damepid6twnf6"]
+
+[ext_resource type="Script" uid="uid://bip7nebjtrmxe" path="res://dialog.gd" id="1_wddsb"]
+[ext_resource type="Texture2D" uid="uid://cfxy34ht75h04" path="res://dialog/dialogue_box.png" id="2_v0ldd"]
+
+[node name="dialog" type="CanvasLayer"]
+script = ExtResource("1_wddsb")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+texture_filter = 1
+offset_left = 190.0
+offset_top = 438.0
+offset_right = 1024.0
+offset_bottom = 596.0
+texture = ExtResource("2_v0ldd")
+region_rect = Rect2(0, 0, 32, 32)
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[node name="RichTextLabel" type="RichTextLabel" parent="NinePatchRect"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 18.0
+offset_top = 8.0
+offset_right = 173.0
+offset_bottom = 55.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+text = "Кондуктор"
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="NinePatchRect"]
+layout_mode = 0
+offset_left = 44.0
+offset_top = 44.0
+offset_right = 827.0
+offset_bottom = 155.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+text = "Сам текст"
