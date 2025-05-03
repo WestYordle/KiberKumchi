@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://cadb55xcekydp" path="res://hero/item/Item__07.png" id="6_gollk"]
 [ext_resource type="PackedScene" uid="uid://da3hd5ht7ta6x" path="res://hero/item/test_item.tscn" id="7_omn8u"]
 [ext_resource type="PackedScene" uid="uid://damepid6twnf6" path="res://dialog/dialog.tscn" id="8_3lya5"]
-[ext_resource type="PackedScene" path="res://dialog/test_dialog_area.tscn" id="9_svvv4"]
+[ext_resource type="PackedScene" uid="uid://b8prm7feifv8m" path="res://dialog/test_dialog_area.tscn" id="9_svvv4"]
 [ext_resource type="AudioStream" uid="uid://fu7i1a2ujp76" path="res://sound/мейн тема.mp3" id="10_bifjp"]
 
 [node name="testlocation" type="Node2D"]
