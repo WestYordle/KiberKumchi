@@ -13,3 +13,5 @@ signal wall()
 signal die()
 
 signal no_button()
+
+signal camera(right, left)

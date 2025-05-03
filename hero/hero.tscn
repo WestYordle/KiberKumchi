@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://celtwsx6ewuek"]
+[gd_scene load_steps=22 format=3 uid="uid://celtwsx6ewuek"]
 
 [ext_resource type="Texture2D" uid="uid://baeqmng4f8j3p" path="res://hero/animation/idle/1а.png" id="1_b5fwp"]
 [ext_resource type="Script" uid="uid://drbxb2hnfntk8" path="res://hero/hero.gd" id="1_iyby7"]
@@ -19,10 +19,9 @@
 [ext_resource type="Texture2D" uid="uid://d1i1w1tddckd0" path="res://hero/animation/walking/5шаг.png" id="17_g8rit"]
 [ext_resource type="Texture2D" uid="uid://b5i4vg8p0y4tq" path="res://hero/animation/walking/6шаг.png" id="18_33f78"]
 [ext_resource type="Texture2D" uid="uid://bhsk7p8pbhgd8" path="res://hero/flashlight/circle.png" id="19_uy2is"]
-[ext_resource type="Texture2D" uid="uid://83cu3kcjp2wa" path="res://hero/flashlight/Black_triangle_with_thick_white_border.svg (2).png" id="20_yuv4n"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_td813"]
-size = Vector2(210, 344)
+size = Vector2(128, 512)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_j7qxw"]
 animations = [{
@@ -97,17 +96,15 @@ shape = SubResource("RectangleShape2D_td813")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(1, -3.8147e-06)
-scale = Vector2(0.194245, 0.190117)
+scale = Vector2(0.257794, 0.281407)
 sprite_frames = SubResource("SpriteFrames_j7qxw")
-animation = &"walking"
+animation = &"idle"
 autoplay = "idle"
 flip_h = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(-8, -109)
+position = Vector2(-8, -224)
 process_callback = 0
-limit_left = 0
-limit_right = 2259
 drag_horizontal_enabled = true
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
@@ -115,19 +112,3 @@ position = Vector2(0, -51)
 scale = Vector2(19.75, 19.475)
 texture = ExtResource("19_uy2is")
 texture_scale = 0.1
-
-[node name="PointLight2DRight" type="PointLight2D" parent="."]
-visible = false
-position = Vector2(450, -35)
-rotation = 4.71239
-scale = Vector2(0.498349, 1.19485)
-energy = 0.5
-texture = ExtResource("20_yuv4n")
-
-[node name="PointLight2DLeft" type="PointLight2D" parent="."]
-visible = false
-position = Vector2(-450, -35)
-rotation = 1.5708
-scale = Vector2(0.498, 1.195)
-energy = 0.24
-texture = ExtResource("20_yuv4n")

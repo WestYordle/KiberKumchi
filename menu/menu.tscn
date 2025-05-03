@@ -1,31 +1,43 @@
-[gd_scene load_steps=3 format=3 uid="uid://1iqdondt5n3i"]
+[gd_scene load_steps=4 format=3 uid="uid://1iqdondt5n3i"]
 
 [ext_resource type="Script" uid="uid://b17vytnsdx3m7" path="res://menu/menu.gd" id="1_j0t7f"]
 [ext_resource type="AudioStream" uid="uid://c31djpon0r8s3" path="res://353df11b08c4f9d.mp3" id="2_g18jx"]
+[ext_resource type="Texture2D" uid="uid://cdr6fjrkxibr" path="res://menu/photo_2025-05-03_15-22-51.jpg" id="3_6nwqt"]
 
 [node name="Menu" type="Node2D"]
 script = ExtResource("1_j0t7f")
 
-[node name="Play" type="Button" parent="."]
-offset_left = 396.0
-offset_top = 112.0
-offset_right = 734.0
-offset_bottom = 225.0
-theme_override_font_sizes/font_size = 32
-text = "Начать"
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = 333.0
+offset_top = 53.0
+offset_right = 1613.0
+offset_bottom = 1013.0
+texture = ExtResource("3_6nwqt")
 
 [node name="Exit" type="Button" parent="."]
-offset_left = 395.0
-offset_top = 241.0
-offset_right = 733.0
-offset_bottom = 354.0
+offset_left = 698.0
+offset_top = 541.0
+offset_right = 968.0
+offset_bottom = 773.0
 theme_override_font_sizes/font_size = 32
-text = "Выйти"
+flat = true
+
+[node name="Play" type="Button" parent="."]
+offset_left = 746.0
+offset_top = 162.0
+offset_right = 965.0
+offset_bottom = 343.0
+theme_override_font_sizes/font_size = 32
+flat = true
 
 [node name="menu_buttuns_click" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_g18jx")
 volume_db = -0.365
 pitch_scale = 0.7
 
-[connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
+[connection signal="mouse_entered" from="Exit" to="." method="_on_exit_mouse_entered"]
+[connection signal="mouse_exited" from="Exit" to="." method="_on_exit_mouse_exited"]
 [connection signal="pressed" from="Exit" to="." method="_on_exit_pressed"]
+[connection signal="mouse_entered" from="Play" to="." method="_on_play_mouse_entered"]
+[connection signal="mouse_exited" from="Play" to="." method="_on_play_mouse_exited"]
+[connection signal="pressed" from="Play" to="." method="_on_play_pressed"]

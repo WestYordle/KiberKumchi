@@ -1,0 +1,44 @@
+[gd_scene load_steps=6 format=3 uid="uid://k3xnyr2ia6ud"]
+
+[ext_resource type="Texture2D" uid="uid://2otagx60jg1f" path="res://location/image/photo_2025-05-02_11-04-27.jpg" id="1_4akr1"]
+[ext_resource type="Script" uid="uid://ciq3g7p0qsxhl" path="res://location/train.gd" id="1_kj5dw"]
+[ext_resource type="PackedScene" uid="uid://ddbf0k2ge5bxu" path="res://location/door.tscn" id="2_mwl62"]
+[ext_resource type="PackedScene" uid="uid://c1wjchtcdix48" path="res://location/out_door.tscn" id="3_veleh"]
+[ext_resource type="PackedScene" uid="uid://celtwsx6ewuek" path="res://hero/hero.tscn" id="4_veleh"]
+
+[node name="Train" type="Node2D"]
+script = ExtResource("1_kj5dw")
+
+[node name="Photo2025-05-0211-04-27" type="Sprite2D" parent="."]
+position = Vector2(960, 540)
+scale = Vector2(1.5, 1.50209)
+texture = ExtResource("1_4akr1")
+
+[node name="Photo2025-05-0211-04-28" type="Sprite2D" parent="."]
+position = Vector2(2484, 540)
+scale = Vector2(1.23125, 1.50209)
+texture = ExtResource("1_4akr1")
+
+[node name="Photo2025-05-0211-04-29" type="Sprite2D" parent="."]
+position = Vector2(3796, 540)
+scale = Vector2(1.18125, 1.50209)
+texture = ExtResource("1_4akr1")
+
+[node name="Photo2025-05-0211-04-30" type="Sprite2D" parent="."]
+position = Vector2(2484, 1887)
+scale = Vector2(1.231, 1.502)
+texture = ExtResource("1_4akr1")
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+position = Vector2(-304, -40)
+energy = 0.0
+blend_mode = 1
+
+[node name="door" parent="." instance=ExtResource("2_mwl62")]
+position = Vector2(2648, 640)
+
+[node name="out_door" parent="." instance=ExtResource("3_veleh")]
+position = Vector2(2648, 1988)
+
+[node name="hero" parent="." instance=ExtResource("4_veleh")]
+position = Vector2(2192, 2064)
