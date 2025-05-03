@@ -5,6 +5,7 @@ var dialoge
 var json = JSON.new()
 var part_dialoge 
 var dialoge_reset : int
+var dialog_loag = false
 var npc
 var has_shown_dialogue = false # Новая переменная, отслеживающая показ диалога
 
@@ -21,6 +22,10 @@ func load_dialoge():
 	var file = FileAccess.open(d_file, FileAccess.READ)
 	file = file.get_as_text()
 	return JSON.parse_string(file)
+
+func _physics_process(delta: float) -> void:
+	if Input.is_action_just_pressed("use") and dialog_loag == true:
+		next_chat()
 
 func next_chat():
 	if part_dialoge == -1:
@@ -39,7 +44,10 @@ func next_chat():
 func _on_dialog(chat):
 	print(chat)
 	if chat != "out":
+		dialog_loag = true
 		npc = chat
 		$".".d_file = "res://dialog/"+str(npc)+".json"
 		start()
+	else:
+		dialog_loag = false
 		$NinePatchRect.visible = false
