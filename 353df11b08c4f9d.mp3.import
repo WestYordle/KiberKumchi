@@ -2,7 +2,11 @@
 
 importer="mp3"
 type="AudioStreamMP3"
+<<<<<<< HEAD
 uid="uid://c31djpon0r8s3"
+=======
+uid="uid://dqy8wvlm122tw"
+>>>>>>> 95e9a85 (звуки кнопок в меню)
 path="res://.godot/imported/353df11b08c4f9d.mp3-2eee0be573abf0caeec17c26ec59a846.mp3str"
 
 [deps]
@@ -13,7 +17,12 @@ dest_files=["res://.godot/imported/353df11b08c4f9d.mp3-2eee0be573abf0caeec17c26e
 [params]
 
 loop=false
+<<<<<<< HEAD
 loop_offset=0
 bpm=0
+=======
+loop_offset=0.0
+bpm=0.0
+>>>>>>> 95e9a85 (звуки кнопок в меню)
 beat_count=0
 bar_beats=4
