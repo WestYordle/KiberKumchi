@@ -55,7 +55,8 @@ shape = SubResource("RectangleShape2D_gnvdd")
 scale = Vector2(0.15, 0.15)
 sprite_frames = SubResource("SpriteFrames_spiym")
 animation = &"run"
-frame_progress = 0.500073
+autoplay = "run"
+frame_progress = 0.296283
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 4
