@@ -1,6 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://b8prm7feifv8m"]
+[gd_scene load_steps=6 format=3 uid="uid://bxonhm7kvbcja"]
 
-[ext_resource type="Script" uid="uid://d1eh3q227lqo" path="res://test_dialoge.gd" id="1_i38w0"]
+[ext_resource type="Script" path="res://test_dialoge.gd" id="1_i38w0"]
 [ext_resource type="Texture2D" uid="uid://f1xobwyiscmm" path="res://buttons/keyboard_15.png" id="2_04d6n"]
 [ext_resource type="Texture2D" uid="uid://l6qniwy35bk2" path="res://buttons/keyboard_116.png" id="3_i78sa"]
 
