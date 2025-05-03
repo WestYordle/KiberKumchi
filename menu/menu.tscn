@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://1iqdondt5n3i"]
+[gd_scene load_steps=3 format=3 uid="uid://1iqdondt5n3i"]
 
 [ext_resource type="Script" uid="uid://b17vytnsdx3m7" path="res://menu/menu.gd" id="1_j0t7f"]
+[ext_resource type="AudioStream" uid="uid://c31djpon0r8s3" path="res://353df11b08c4f9d.mp3" id="2_g18jx"]
 
 [node name="Menu" type="Node2D"]
 script = ExtResource("1_j0t7f")
@@ -20,6 +21,11 @@ offset_right = 733.0
 offset_bottom = 354.0
 theme_override_font_sizes/font_size = 32
 text = "Выйти"
+
+[node name="menu_buttuns_click" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_g18jx")
+volume_db = -0.365
+pitch_scale = 0.7
 
 [connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="Exit" to="." method="_on_exit_pressed"]
