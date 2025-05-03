@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=3 uid="uid://b8prm7feifv8m"]
+
+[ext_resource type="Script" uid="uid://d1eh3q227lqo" path="res://test_dialoge.gd" id="1_i38w0"]
+[ext_resource type="Texture2D" uid="uid://f1xobwyiscmm" path="res://buttons/keyboard_15.png" id="2_04d6n"]
+[ext_resource type="Texture2D" uid="uid://l6qniwy35bk2" path="res://buttons/keyboard_116.png" id="3_i78sa"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_orkpr"]
+radius = 102.396
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qt1xg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_04d6n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_i78sa")
+}],
+"loop": true,
+"name": &"ClickButton",
+"speed": 2.0
+}]
+
+[node name="Area2D" type="Area2D"]
+script = ExtResource("1_i38w0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_orkpr")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+visible = false
+light_mask = 3
+texture_filter = 1
+position = Vector2(-1.90735e-06, -132)
+scale = Vector2(1.48437, 1.46875)
+sprite_frames = SubResource("SpriteFrames_qt1xg")
+animation = &"ClickButton"
+autoplay = "ClickButton"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

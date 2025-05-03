@@ -4,7 +4,6 @@ var check = 0
 
 func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("use") and check == 1:
-		Signals.emit_signal("compartment")
 		var tween = get_tree().create_tween();
 		tween.tween_callback(queue_free);
 		Signals.emit_signal("item", "sword")

@@ -10,10 +10,9 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	print($Hero.position)
+	pass
 	
 func _on_compartment():
-	print("in")
 	$Hero.position.y = 443.0+650
 
 func _on_out_compartment():

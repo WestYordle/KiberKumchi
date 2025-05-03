@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cfw2et41e2f5u"]
+[gd_scene load_steps=11 format=3 uid="uid://cfw2et41e2f5u"]
 
 [ext_resource type="Texture2D" uid="uid://2otagx60jg1f" path="res://location/image/photo_2025-05-02_11-04-27.jpg" id="1_dg1e7"]
 [ext_resource type="Script" uid="uid://bouwpvkfb613i" path="res://location/testlocation.gd" id="1_ks64o"]
@@ -7,6 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://c1wjchtcdix48" path="res://location/out_door.tscn" id="5_sl1ao"]
 [ext_resource type="Texture2D" uid="uid://cadb55xcekydp" path="res://hero/item/Item__07.png" id="6_gollk"]
 [ext_resource type="PackedScene" uid="uid://da3hd5ht7ta6x" path="res://hero/item/test_item.tscn" id="7_omn8u"]
+[ext_resource type="PackedScene" uid="uid://damepid6twnf6" path="res://dialog/dialog.tscn" id="8_3lya5"]
+[ext_resource type="PackedScene" uid="uid://b8prm7feifv8m" path="res://dialog/test_dialog_area.tscn" id="9_svvv4"]
+[ext_resource type="AudioStream" uid="uid://fu7i1a2ujp76" path="res://sound/мейн тема.mp3" id="10_bifjp"]
 
 [node name="testlocation" type="Node2D"]
 script = ExtResource("1_ks64o")
@@ -30,7 +33,7 @@ texture = ExtResource("1_dg1e7")
 offset = Vector2(282.091, 65.007)
 
 [node name="Hero" parent="." instance=ExtResource("2_g83l1")]
-position = Vector2(211, 437)
+position = Vector2(256, 439)
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
 blend_mode = 1
@@ -73,3 +76,12 @@ texture = ExtResource("6_gollk")
 
 [node name="Item" parent="." instance=ExtResource("7_omn8u")]
 position = Vector2(915, 1152)
+
+[node name="dialog" parent="." instance=ExtResource("8_3lya5")]
+
+[node name="Area2D" parent="." instance=ExtResource("9_svvv4")]
+position = Vector2(1164, 427)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("10_bifjp")
+autoplay = true
