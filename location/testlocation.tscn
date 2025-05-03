@@ -36,6 +36,7 @@ offset = Vector2(282.091, 65.007)
 position = Vector2(256, 439)
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+energy = 0.79
 blend_mode = 1
 height = 0.78
 
