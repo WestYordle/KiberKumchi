@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://damepid6twnf6" path="res://dialog/dialog.tscn" id="8_3lya5"]
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 [ext_resource type="PackedScene" uid="uid://bxonhm7kvbcja" path="res://dialog/test_dialog_area.tscn" id="9_svvv4"]
 =======
 [ext_resource type="PackedScene" path="res://dialog/test_dialog_area.tscn" id="9_svvv4"]
@@ -89,11 +90,9 @@ _data = {
 <<<<<<< HEAD
 [ext_resource type="PackedScene" uid="uid://b8prm7feifv8m" path="res://dialog/test_dialog_area.tscn" id="9_svvv4"]
 =======
-[ext_resource type="PackedScene" uid="uid://bxonhm7kvbcja" path="res://dialog/test_dialog_area.tscn" id="9_svvv4"]
->>>>>>> da7bce2 (8v)
 =======
+>>>>>>> 643dad5 (﻿fngg)
 [ext_resource type="PackedScene" uid="uid://bxonhm7kvbcja" path="res://dialog/test_dialog_area.tscn" id="9_svvv4"]
->>>>>>> 060630c (9)
 [ext_resource type="AudioStream" uid="uid://fu7i1a2ujp76" path="res://sound/мейн тема.mp3" id="10_bifjp"]
 [ext_resource type="PackedScene" uid="uid://c1wfk4eftl0wg" path="res://shader_globals_override.tscn" id="11_3rj1m"]
 >>>>>>> be06265 (no message)
@@ -130,11 +129,15 @@ position = Vector2(246, 447)
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
 <<<<<<< HEAD
+<<<<<<< HEAD
 modulate = Color(0, 0, 0, 0)
 energy = 0.0
 =======
 energy = 0.79
 >>>>>>> c783992 (7v)
+=======
+energy = 0.95
+>>>>>>> 643dad5 (﻿fngg)
 blend_mode = 1
 height = 0.78
 
@@ -150,6 +153,7 @@ offset_left = 375.0
 offset_top = 956.0
 offset_right = 525.0
 offset_bottom = 1040.0
+focus_mode = 0
 theme_override_colors/word_highlighted_color = Color(0, 0, 0, 1)
 theme_override_colors/background_color = Color(0, 0, 0, 0)
 theme_override_font_sizes/font_size = 29
@@ -161,10 +165,20 @@ offset_left = 403.0
 offset_top = 271.0
 offset_right = 553.0
 offset_bottom = 355.0
+focus_mode = 0
 theme_override_colors/word_highlighted_color = Color(0, 0, 0, 1)
 theme_override_colors/background_color = Color(0, 0, 0, 0)
 theme_override_font_sizes/font_size = 29
 text = "Коридор"
+context_menu_enabled = false
+emoji_menu_enabled = false
+shortcut_keys_enabled = false
+selecting_enabled = false
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
+virtual_keyboard_enabled = false
+middle_mouse_paste_enabled = false
+empty_selection_clipboard_enabled = false
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -204,6 +218,7 @@ position = Vector2(915, 1152)
 position = Vector2(1164, 427)
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(1500, 255)
 stream = ExtResource("10_bifjp")
 autoplay = true
 
