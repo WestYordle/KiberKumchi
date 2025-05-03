@@ -7,6 +7,7 @@ func _ready() -> void:
 	Signals.connect("out_compartment", Callable(self, "_on_out_compartment"))
 	Signals.connect("item", Callable(self, "_on_item"))
 	Signals.connect("die", Callable(self, "_on_die"))
+	Signals.connect("light_up", Callable(self, "_on_light_up"))
 	$DirectionalLight2D.energy = 1
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -23,6 +24,9 @@ func _on_out_compartment():
 func _on_item(name):
 	$CanvasLayer/Item07.visible = true
 
+func _on_light_up(_posX, _posY):
+	$CanvasLayer/Item07.visible = false
+	pass
 
 func _on_area_right_2d_2_body_entered(body: Node2D) -> void:
 	print("СТЕНАААААА")

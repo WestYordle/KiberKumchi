@@ -3,13 +3,23 @@ extends CharacterBody2D
 
 const SPEED = 250.0
 
+@onready var can_blink = false
 @onready var anim = $AnimatedSprite2D
- 
+@onready var timer = $Timer
+@onready var animator = $AnimationPlayer
+
 func _ready() -> void:
 	Signals.connect("die", Callable(self, "_on_die"))
 	Signals.connect("camera", Callable(self, "_on_camera"))
+	Signals.connect("item", Callable(self, "_on_item"))
 	
 func _physics_process(delta: float) -> void:
+	
+	if Input.is_action_just_pressed("light_up") and timer.is_stopped() and can_blink:
+		timer.start()
+		can_blink = false
+		animator.play("light_blink")
+		Signals.emit_signal("light_up",position.x,position.y)
 	
 	var direction := Input.get_axis("left", "right")
 	if direction:
@@ -27,3 +37,6 @@ func _physics_process(delta: float) -> void:
 func _on_camera(left, right):
 	$Camera2D.limit_left = left
 	$Camera2D.limit_right = right
+
+func _on_item(name):
+	can_blink = true

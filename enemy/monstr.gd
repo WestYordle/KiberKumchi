@@ -8,6 +8,7 @@ var SPEED = 200
 
 func _ready() -> void:
 	Signals.connect("wall", Callable(self, "_on_wall"))
+	Signals.connect("light_up",Callable(self,"_on_light_up"))
 	
 func _physics_process(delta: float) -> void:
 	velocity.x = direction * SPEED
@@ -41,6 +42,11 @@ func _on_wall():
 	direction *= -1
 	SPEED = 200
 
+func _on_light_up(posX, _posY):
+	if position.x > posX:
+		direction = 1
+	else:
+		direction = -1
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	SPEED = 400

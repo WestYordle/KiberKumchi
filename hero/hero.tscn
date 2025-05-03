@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://celtwsx6ewuek"]
+[gd_scene load_steps=25 format=3 uid="uid://celtwsx6ewuek"]
 
 [ext_resource type="Texture2D" uid="uid://baeqmng4f8j3p" path="res://hero/animation/idle/1а.png" id="1_b5fwp"]
 [ext_resource type="Script" uid="uid://drbxb2hnfntk8" path="res://hero/hero.gd" id="1_iyby7"]
@@ -87,6 +87,42 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="Animation" id="Animation_uy2is"]
+resource_name = "light_blink"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../PointLight2D:energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [10.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_yuv4n"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../PointLight2D:energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_g74me"]
+_data = {
+&"RESET": SubResource("Animation_yuv4n"),
+&"light_blink": SubResource("Animation_uy2is")
+}
+
 [node name="hero" type="CharacterBody2D"]
 collision_layer = 3
 script = ExtResource("1_iyby7")
@@ -111,4 +147,12 @@ drag_horizontal_enabled = true
 position = Vector2(0, -51)
 scale = Vector2(19.75, 19.475)
 texture = ExtResource("19_uy2is")
-texture_scale = 0.1
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../AnimatedSprite2D")
+libraries = {
+&"": SubResource("AnimationLibrary_g74me")
+}
