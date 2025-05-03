@@ -1,15 +1,81 @@
-[gd_scene load_steps=11 format=3 uid="uid://cfw2et41e2f5u"]
+[gd_scene load_steps=17 format=3 uid="uid://cfw2et41e2f5u"]
 
 [ext_resource type="Texture2D" uid="uid://2otagx60jg1f" path="res://location/image/photo_2025-05-02_11-04-27.jpg" id="1_dg1e7"]
 [ext_resource type="Script" uid="uid://bouwpvkfb613i" path="res://location/testlocation.gd" id="1_ks64o"]
 [ext_resource type="PackedScene" uid="uid://celtwsx6ewuek" path="res://hero/hero.tscn" id="2_g83l1"]
 [ext_resource type="PackedScene" uid="uid://ddbf0k2ge5bxu" path="res://location/door.tscn" id="3_815jk"]
 [ext_resource type="PackedScene" uid="uid://c1wjchtcdix48" path="res://location/out_door.tscn" id="5_sl1ao"]
-[ext_resource type="Texture2D" uid="uid://cadb55xcekydp" path="res://hero/item/Item__07.png" id="6_gollk"]
+[ext_resource type="Texture2D" uid="uid://76tlyk7ck8k5" path="res://menu/End.PNG" id="6_5f2gr"]
+[ext_resource type="Texture2D" uid="uid://cb7tlwvmygjmx" path="res://hero/item/карточка батаерии3.png" id="7_5f2gr"]
 [ext_resource type="PackedScene" uid="uid://da3hd5ht7ta6x" path="res://hero/item/test_item.tscn" id="7_omn8u"]
 [ext_resource type="PackedScene" uid="uid://damepid6twnf6" path="res://dialog/dialog.tscn" id="8_3lya5"]
 [ext_resource type="PackedScene" uid="uid://b8prm7feifv8m" path="res://dialog/test_dialog_area.tscn" id="9_svvv4"]
 [ext_resource type="AudioStream" uid="uid://fu7i1a2ujp76" path="res://sound/мейн тема.mp3" id="10_bifjp"]
+[ext_resource type="PackedScene" uid="uid://dh8j1dganpkgn" path="res://enemy/monstr.tscn" id="11_3rj1m"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3rj1m"]
+size = Vector2(42, 384)
+
+[sub_resource type="Animation" id="Animation_3rj1m"]
+resource_name = "Die"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/End:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/TextEnd:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_5f2gr"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/End:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/TextEnd:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8h153"]
+_data = {
+&"Die": SubResource("Animation_3rj1m"),
+&"RESET": SubResource("Animation_5f2gr")
+}
 
 [node name="testlocation" type="Node2D"]
 script = ExtResource("1_ks64o")
@@ -20,22 +86,30 @@ scale = Vector2(0.896875, 0.920723)
 texture = ExtResource("1_dg1e7")
 offset = Vector2(282.091, 65.007)
 
+[node name="Photo2025-05-0211-04-29" type="Sprite2D" parent="."]
+position = Vector2(323.425, 920)
+scale = Vector2(0.902918, 0.922179)
+texture = ExtResource("1_dg1e7")
+offset = Vector2(282.091, 65.007)
+
 [node name="Photo2025-05-0211-04-28" type="Sprite2D" parent="."]
-position = Vector2(1454, 264)
-scale = Vector2(0.853, 0.921)
+position = Vector2(1452.77, 263.327)
+scale = Vector2(0.854331, 0.917942)
 texture = ExtResource("1_dg1e7")
 offset = Vector2(282.091, 65.007)
 
 [node name="Photo2025-05-0211-04-28" type="Sprite2D" parent="Photo2025-05-0211-04-28"]
-position = Vector2(-1325.41, 712.269)
-scale = Vector2(1.05852, 1.00128)
+position = Vector2(-16.049, 715.836)
+scale = Vector2(0.997674, 0.997189)
 texture = ExtResource("1_dg1e7")
 offset = Vector2(282.091, 65.007)
 
 [node name="Hero" parent="." instance=ExtResource("2_g83l1")]
-position = Vector2(256, 439)
+position = Vector2(246, 447)
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+modulate = Color(0, 0, 0, 0)
+energy = 0.0
 blend_mode = 1
 height = 0.78
 
@@ -46,6 +120,7 @@ position = Vector2(691, 399)
 position = Vector2(689, 1005)
 
 [node name="TextEdit2" type="TextEdit" parent="."]
+visible = false
 offset_left = 375.0
 offset_top = 956.0
 offset_right = 525.0
@@ -56,6 +131,7 @@ theme_override_font_sizes/font_size = 29
 text = "Купе"
 
 [node name="TextEdit" type="TextEdit" parent="."]
+visible = false
 offset_left = 403.0
 offset_top = 271.0
 offset_right = 553.0
@@ -70,9 +146,29 @@ text = "Коридор"
 [node name="Item07" type="Sprite2D" parent="CanvasLayer"]
 visible = false
 texture_filter = 1
-position = Vector2(145.125, 544.375)
-scale = Vector2(5.48437, 5.45312)
-texture = ExtResource("6_gollk")
+position = Vector2(102, 564)
+scale = Vector2(0.219375, 0.228922)
+texture = ExtResource("7_5f2gr")
+
+[node name="End" type="Sprite2D" parent="CanvasLayer"]
+visible = false
+position = Vector2(576, 325.5)
+scale = Vector2(1.18672, 0.901934)
+texture = ExtResource("6_5f2gr")
+
+[node name="TextEnd" type="RichTextLabel" parent="CanvasLayer"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 478.0
+offset_top = 173.0
+offset_right = -474.0
+offset_bottom = -424.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 32
+text = "Это...конец?"
 
 [node name="Item" parent="." instance=ExtResource("7_omn8u")]
 position = Vector2(915, 1152)
@@ -85,3 +181,32 @@ position = Vector2(1164, 427)
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("10_bifjp")
 autoplay = true
+
+[node name="AreaRight2D2" type="Area2D" parent="."]
+position = Vector2(1981, 484)
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaRight2D2"]
+position = Vector2(-1996, -26)
+shape = SubResource("RectangleShape2D_3rj1m")
+
+[node name="AreaLeft2D" type="Area2D" parent="."]
+position = Vector2(4383, 493)
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaLeft2D"]
+position = Vector2(-814, -85)
+shape = SubResource("RectangleShape2D_3rj1m")
+
+[node name="Monstr" parent="." instance=ExtResource("11_3rj1m")]
+position = Vector2(1981, 484)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_8h153")
+}
+
+[connection signal="body_entered" from="AreaRight2D2" to="." method="_on_area_right_2d_2_body_entered"]
+[connection signal="body_entered" from="AreaLeft2D" to="." method="_on_area_left_2d_body_entered"]

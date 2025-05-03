@@ -1,0 +1,77 @@
+[gd_scene load_steps=12 format=3 uid="uid://dh8j1dganpkgn"]
+
+[ext_resource type="Script" uid="uid://cebf7cm5fw63d" path="res://enemy/monstr.gd" id="1_k5vct"]
+[ext_resource type="Texture2D" uid="uid://dep1ihthiagey" path="res://enemy/монстр1.png" id="2_lnipg"]
+[ext_resource type="Texture2D" uid="uid://df6xvgxgk6ncb" path="res://enemy/монстр2.png" id="3_32ibx"]
+[ext_resource type="Texture2D" uid="uid://di7duaqxgn62e" path="res://enemy/монстр3.png" id="4_3waul"]
+[ext_resource type="Texture2D" uid="uid://bwkc58toemika" path="res://enemy/монстр4.png" id="5_g05xr"]
+[ext_resource type="Texture2D" uid="uid://c4ka7wle4c5s6" path="res://enemy/монстр5.png" id="6_caxrw"]
+[ext_resource type="Texture2D" uid="uid://blxklh32q0by6" path="res://enemy/монстр7.png" id="7_pjexw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gnvdd"]
+size = Vector2(392, 266)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_spiym"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_lnipg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_32ibx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_3waul")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_g05xr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_caxrw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_pjexw")
+}],
+"loop": true,
+"name": &"run",
+"speed": 7.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k5vct"]
+size = Vector2(731.5, 380)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lnipg"]
+size = Vector2(435, 284)
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("1_k5vct")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_gnvdd")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.15, 0.15)
+sprite_frames = SubResource("SpriteFrames_spiym")
+animation = &"run"
+frame_progress = 0.500073
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(142.25, -3)
+shape = SubResource("RectangleShape2D_k5vct")
+
+[node name="Area2D2" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
+position = Vector2(-5.5, -3)
+shape = SubResource("RectangleShape2D_lnipg")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="Area2D2" to="." method="_on_area_2d_2_body_entered"]

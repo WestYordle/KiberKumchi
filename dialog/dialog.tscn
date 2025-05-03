@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://damepid6twnf6"]
 
-[ext_resource type="Script" uid="uid://bip7nebjtrmxe" path="res://dialog.gd" id="1_wddsb"]
+[ext_resource type="Script" uid="uid://bip7nebjtrmxe" path="res://dialog/dialog.gd" id="1_wddsb"]
 [ext_resource type="Texture2D" uid="uid://cfxy34ht75h04" path="res://dialog/dialogue_box.png" id="2_v0ldd"]
 [ext_resource type="Texture2D" uid="uid://f1xobwyiscmm" path="res://buttons/keyboard_15.png" id="3_ra4v5"]
 [ext_resource type="Texture2D" uid="uid://l6qniwy35bk2" path="res://buttons/keyboard_116.png" id="4_tgv2x"]
@@ -20,7 +20,6 @@ animations = [{
 }]
 
 [node name="dialog" type="CanvasLayer"]
-visible = false
 script = ExtResource("1_wddsb")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
@@ -58,7 +57,7 @@ text = "Сам текст"
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 light_mask = 3
 texture_filter = 1
-position = Vector2(971, 541)
+position = Vector2(989, 554)
 scale = Vector2(1.4375, 1.625)
 sprite_frames = SubResource("SpriteFrames_pa3me")
 animation = &"ClickButton"

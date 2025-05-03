@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://da3hd5ht7ta6x"]
 
-[ext_resource type="Texture2D" uid="uid://cadb55xcekydp" path="res://hero/item/Item__07.png" id="1_gp0t1"]
 [ext_resource type="Script" uid="uid://rlplht6w6p0q" path="res://hero/item/test_item.gd" id="1_ui4m5"]
+[ext_resource type="Texture2D" uid="uid://c4yus3jbbt4ue" path="res://hero/item/батарейка.png" id="2_avse5"]
 [ext_resource type="Texture2D" uid="uid://f1xobwyiscmm" path="res://buttons/keyboard_15.png" id="2_ui4m5"]
 [ext_resource type="Texture2D" uid="uid://l6qniwy35bk2" path="res://buttons/keyboard_116.png" id="3_avse5"]
 
@@ -35,8 +35,8 @@ shape = SubResource("RectangleShape2D_ibspb")
 [node name="Item07" type="Sprite2D" parent="."]
 texture_filter = 1
 position = Vector2(1, 7.62939e-06)
-scale = Vector2(5, 5.125)
-texture = ExtResource("1_gp0t1")
+scale = Vector2(0.392593, 0.437037)
+texture = ExtResource("2_avse5")
 
 [node name="Area2D" type="Area2D" parent="."]
 

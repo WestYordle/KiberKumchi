@@ -5,7 +5,10 @@ const SPEED = 250.0
 
 @onready var anim = $AnimatedSprite2D
  
+func _ready() -> void:
+	Signals.connect("die", Callable(self, "_on_die"))
 func _physics_process(delta: float) -> void:
+	
 	var direction := Input.get_axis("left", "right")
 	if direction:
 		velocity.x = direction * SPEED
@@ -15,10 +18,12 @@ func _physics_process(delta: float) -> void:
 		anim.play("idle")
 	if direction == -1:
 		$AnimatedSprite2D.flip_h = false
-		$PointLight2DRight.visible = false
-		$PointLight2DLeft.visible = true
+		#$PointLight2DRight.visible = false
+		#$PointLight2DLeft.visible = true
 	elif direction == 1:
 		$AnimatedSprite2D.flip_h = true
-		$PointLight2DRight.visible = true
-		$PointLight2DLeft.visible = false
+		#$PointLight2DRight.visible = true
+		#$PointLight2DLeft.visible = false
 	move_and_slide()
+
+	
