@@ -27,8 +27,6 @@ func _physics_process(delta: float) -> void:
 		next_chat()
 		
 func next_chat():
-	if part_dialoge == -1:
-		$".".visible = true
 	part_dialoge += 1
 	if part_dialoge < len(dialoge):
 		$NinePatchRect/Name.text = dialoge[part_dialoge]["name"]
@@ -42,8 +40,10 @@ func _on_dialog(chat):
 	if chat != "out":
 		dialog_loag = true
 		npc = chat
-		$".".d_file = "res://dialog/"+"test_dialog"+".json"
+		$".".d_file = "res://dialog/text/"+str(npc)+".json"
 		start()
+		$".".visible = true
+		next_chat()
 	else:
 		dialog_loag = false
 		$".".visible = false
