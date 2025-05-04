@@ -21,11 +21,19 @@ func load_dialoge():
 	var file = FileAccess.open(d_file, FileAccess.READ)
 	file = file.get_as_text()
 	return JSON.parse_string(file)
+<<<<<<< HEAD:dialog/dialog.gd
 	
 func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("use") and dialog_loag == true:
 		next_chat()
 		
+=======
+
+func _physics_process(delta: float) -> void:
+	if Input.is_action_just_pressed("use") and dialog_loag == true:
+		next_chat()
+
+>>>>>>> be06265 (no message):dialog.gd
 func next_chat():
 	part_dialoge += 1
 	if part_dialoge < len(dialoge):
@@ -46,4 +54,8 @@ func _on_dialog(chat):
 		next_chat()
 	else:
 		dialog_loag = false
+<<<<<<< HEAD:dialog/dialog.gd
 		$".".visible = false
+=======
+		$NinePatchRect.visible = false
+>>>>>>> be06265 (no message):dialog.gd

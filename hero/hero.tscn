@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 [gd_scene load_steps=22 format=3 uid="uid://celtwsx6ewuek"]
+=======
+[gd_scene load_steps=26 format=3 uid="uid://celtwsx6ewuek"]
+>>>>>>> 643dad5 (﻿fngg)
 
 [ext_resource type="Texture2D" uid="uid://baeqmng4f8j3p" path="res://hero/animation/idle/1а.png" id="1_b5fwp"]
 [ext_resource type="Script" uid="uid://drbxb2hnfntk8" path="res://hero/hero.gd" id="1_iyby7"]
@@ -18,6 +22,7 @@
 [ext_resource type="Texture2D" uid="uid://c2gsy3sy1v18y" path="res://hero/animation/walking/4шаг.png" id="16_g74me"]
 [ext_resource type="Texture2D" uid="uid://d1i1w1tddckd0" path="res://hero/animation/walking/5шаг.png" id="17_g8rit"]
 [ext_resource type="Texture2D" uid="uid://b5i4vg8p0y4tq" path="res://hero/animation/walking/6шаг.png" id="18_33f78"]
+[ext_resource type="Shader" uid="uid://gnsjswgwubay" path="res://hero/camerahero.gdshader" id="19_g74me"]
 [ext_resource type="Texture2D" uid="uid://bhsk7p8pbhgd8" path="res://hero/flashlight/circle.png" id="19_uy2is"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_td813"]
@@ -87,6 +92,25 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_g8rit"]
+shader = ExtResource("19_g74me")
+shader_parameter/resolution = Vector2(4000, 900)
+shader_parameter/scan_line_amount = 0.0
+shader_parameter/warp_amount = 0.63
+shader_parameter/noise_amount = 0.006
+shader_parameter/interference_amount = 1.0
+shader_parameter/grille_amount = 0.048
+shader_parameter/grille_size = 1.0
+shader_parameter/vignette_amount = 0.621
+shader_parameter/vignette_intensity = 0.278
+shader_parameter/aberation_amount = 0.406
+shader_parameter/roll_line_amount = 0.058
+shader_parameter/roll_speed = 0.335
+shader_parameter/scan_line_strength = -5.916
+shader_parameter/pixel_strength = -4.0
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_g74me"]
+
 [node name="hero" type="CharacterBody2D"]
 collision_layer = 3
 script = ExtResource("1_iyby7")
@@ -106,6 +130,15 @@ flip_h = true
 position = Vector2(-8, -224)
 process_callback = 0
 drag_horizontal_enabled = true
+
+[node name="TextureRect" type="TextureRect" parent="Camera2D"]
+modulate = Color(1, 1, 1, 0.117647)
+material = SubResource("ShaderMaterial_g8rit")
+offset_left = -638.0
+offset_top = -346.0
+offset_right = 1170.0
+offset_bottom = 577.0
+texture = SubResource("PlaceholderTexture2D_g74me")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 position = Vector2(0, -51)
