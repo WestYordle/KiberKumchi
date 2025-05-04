@@ -14,6 +14,6 @@ signal die()
 
 signal no_button()
 
-signal camera(right, left)
+signal camera(left, right)
 
 signal light_up(posX, posY)

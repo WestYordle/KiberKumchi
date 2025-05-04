@@ -101,6 +101,18 @@ tracks/0/keys = {
 "update": 0,
 "values": [10.0, 1.0]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../PointLight2D:texture_scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 0.15]
+}
 
 [sub_resource type="Animation" id="Animation_yuv4n"]
 length = 0.001
@@ -115,6 +127,18 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../PointLight2D:texture_scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.15]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_g74me"]
@@ -147,6 +171,7 @@ drag_horizontal_enabled = true
 position = Vector2(0, -51)
 scale = Vector2(19.75, 19.475)
 texture = ExtResource("19_uy2is")
+texture_scale = 0.15
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true

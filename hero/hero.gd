@@ -3,12 +3,14 @@ extends CharacterBody2D
 
 const SPEED = 250.0
 
-@onready var can_blink = false
+var can_blink = false
+
 @onready var anim = $AnimatedSprite2D
 @onready var timer = $Timer
 @onready var animator = $AnimationPlayer
 
 func _ready() -> void:
+	
 	Signals.connect("die", Callable(self, "_on_die"))
 	Signals.connect("camera", Callable(self, "_on_camera"))
 	Signals.connect("item", Callable(self, "_on_item"))
@@ -24,7 +26,11 @@ func _physics_process(delta: float) -> void:
 	var direction := Input.get_axis("left", "right")
 	if direction:
 		velocity.x = direction * SPEED
-		anim.play("walking")
+		if self.is_on_wall():
+			anim.play("idle")
+		else:
+			anim.play("walking")
+
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		anim.play("idle")

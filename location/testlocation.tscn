@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://cfw2et41e2f5u"]
+[gd_scene load_steps=18 format=3 uid="uid://cfw2et41e2f5u"]
 
 [ext_resource type="Texture2D" uid="uid://2otagx60jg1f" path="res://location/image/photo_2025-05-02_11-04-27.jpg" id="1_dg1e7"]
 [ext_resource type="Script" uid="uid://bouwpvkfb613i" path="res://location/testlocation.gd" id="1_ks64o"]
@@ -77,6 +77,9 @@ _data = {
 &"RESET": SubResource("Animation_5f2gr")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5f2gr"]
+size = Vector2(20, 1306)
+
 [node name="testlocation" type="Node2D"]
 script = ExtResource("1_ks64o")
 
@@ -145,8 +148,9 @@ text = "Коридор"
 
 [node name="Item07" type="Sprite2D" parent="CanvasLayer"]
 visible = false
+modulate = Color(1, 1, 1, 0)
 texture_filter = 1
-position = Vector2(102, 564)
+position = Vector2(2, 564)
 scale = Vector2(0.219375, 0.228922)
 texture = ExtResource("7_5f2gr")
 
@@ -188,7 +192,7 @@ collision_layer = 4
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AreaRight2D2"]
-position = Vector2(-1996, -26)
+position = Vector2(-3992, -52)
 shape = SubResource("RectangleShape2D_3rj1m")
 
 [node name="AreaLeft2D" type="Area2D" parent="."]
@@ -202,11 +206,28 @@ shape = SubResource("RectangleShape2D_3rj1m")
 
 [node name="Monstr" parent="." instance=ExtResource("11_3rj1m")]
 position = Vector2(1981, 484)
+floor_block_on_wall = false
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_8h153")
 }
+
+[node name="walls" type="Node2D" parent="."]
+position = Vector2(-8, 0)
+
+[node name="wall2" type="StaticBody2D" parent="walls"]
+position = Vector2(2232, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="walls/wall2"]
+position = Vector2(0, 643)
+shape = SubResource("RectangleShape2D_5f2gr")
+
+[node name="wall" type="StaticBody2D" parent="walls"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="walls/wall"]
+position = Vector2(0, 643)
+shape = SubResource("RectangleShape2D_5f2gr")
 
 [connection signal="body_entered" from="AreaRight2D2" to="." method="_on_area_right_2d_2_body_entered"]
 [connection signal="body_entered" from="AreaLeft2D" to="." method="_on_area_left_2d_body_entered"]
