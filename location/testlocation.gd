@@ -1,6 +1,6 @@
 extends Node2D
 
-
+var started = false
 # Called when the node enters the scene tree for the first time.
 	
 func _ready() -> void:
@@ -13,9 +13,13 @@ func _ready() -> void:
 	Signals.connect("light_up", Callable(self, "_on_light_up"))
 	$DirectionalLight2D.energy = 1
 
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	
+func _process(_delta: float) -> void:
+	if started == false:
+		Input.action_press("use",1)
+		Input.action_release("use")
+		started = true
 	pass
 	
 	
@@ -26,17 +30,17 @@ func _on_out_compartment():
 	print("out")
 	$Hero.position.y = 443.0
 
-func _on_item(name):
-	$CanvasLayer/Item07.visible = true
+func _on_item(item_name):
+	get_node("CanvasLayer/"+item_name).visible = true
 
 func _on_light_up(_posX, _posY):
 	#var tween = get_tree().create_tween()
 	#tween.tween_property($CanvasLayer/Item07,"modulate",$CanvasLayer/Item07.self_modulate+Color(1,1,1,-1),0.5)
 	#tween.play()
-	$CanvasLayer/Item07.visible = false
+	get_node("CanvasLayer/battery").visible = false
 	pass
 
-func _on_area_right_2d_2_body_entered(body: Node2D) -> void:
+func _on_area_right_2d_2_body_entered(_body: Node2D) -> void:
 	Signals.emit_signal("wall")
 	print("СТЕНАААААА")
 

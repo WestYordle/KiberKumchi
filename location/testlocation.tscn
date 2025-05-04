@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://cfw2et41e2f5u"]
+[gd_scene load_steps=19 format=3 uid="uid://cfw2et41e2f5u"]
 
 [ext_resource type="Texture2D" uid="uid://2otagx60jg1f" path="res://location/image/photo_2025-05-02_11-04-27.jpg" id="1_dg1e7"]
 [ext_resource type="Script" uid="uid://bouwpvkfb613i" path="res://location/testlocation.gd" id="1_ks64o"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://damepid6twnf6" path="res://dialog/dialog.tscn" id="8_3lya5"]
 [ext_resource type="PackedScene" uid="uid://bxonhm7kvbcja" path="res://dialog/test_dialog_area.tscn" id="9_svvv4"]
 [ext_resource type="AudioStream" uid="uid://fu7i1a2ujp76" path="res://sound/мейн тема.mp3" id="10_bifjp"]
+[ext_resource type="PackedScene" uid="uid://c58002oatlaae" path="res://hero/item/test_item2.tscn" id="10_ps6eb"]
 [ext_resource type="PackedScene" uid="uid://dh8j1dganpkgn" path="res://enemy/monstr.tscn" id="11_3rj1m"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3rj1m"]
@@ -146,13 +147,22 @@ text = "Коридор"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="Item07" type="Sprite2D" parent="CanvasLayer"]
+[node name="battery" type="Sprite2D" parent="CanvasLayer"]
 visible = false
 modulate = Color(1, 1, 1, 0)
 texture_filter = 1
 position = Vector2(2, 564)
 scale = Vector2(0.219375, 0.228922)
 texture = ExtResource("7_5f2gr")
+
+[node name="key" type="Sprite2D" parent="CanvasLayer"]
+visible = false
+modulate = Color(1, 1, 1, 0)
+texture_filter = 1
+position = Vector2(0, 704)
+scale = Vector2(0.219375, 0.228922)
+texture = ExtResource("7_5f2gr")
+offset = Vector2(2, 0)
 
 [node name="End" type="Sprite2D" parent="CanvasLayer"]
 visible = false
@@ -174,8 +184,13 @@ grow_vertical = 2
 theme_override_font_sizes/normal_font_size = 32
 text = "Это...конец?"
 
-[node name="Item" parent="." instance=ExtResource("7_omn8u")]
-position = Vector2(915, 1152)
+[node name="Item" parent="." node_paths=PackedStringArray("gui_item") instance=ExtResource("7_omn8u")]
+position = Vector2(912, 1152)
+gui_item = NodePath("../CanvasLayer/battery")
+
+[node name="Item2" parent="." node_paths=PackedStringArray("gui_item") instance=ExtResource("10_ps6eb")]
+position = Vector2(256, 552)
+gui_item = NodePath("../CanvasLayer/key")
 
 [node name="dialog" parent="." instance=ExtResource("8_3lya5")]
 
