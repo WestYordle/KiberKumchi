@@ -5,7 +5,7 @@ var check = 0
 @export var item_name : String = "battery"
 
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if Input.is_action_just_pressed("use") and check == 1:
 		var tween = get_tree().create_tween();
 		tween.tween_property(self,"position",position-Vector2(0,50),1)
@@ -15,10 +15,10 @@ func _physics_process(delta: float) -> void:
 		tween.tween_callback(queue_free);
 		Signals.emit_signal("item", item_name)
 		
-func _on_area_2d_body_entered(body: Node2D) -> void:
+func _on_area_2d_body_entered(_body: Node2D) -> void:
 	check = 1
 	$AnimatedSprite2D.visible = true
 
-func _on_area_2d_body_exited(body: Node2D) -> void:
+func _on_area_2d_body_exited(_body: Node2D) -> void:
 	check = 0
 	$AnimatedSprite2D.visible = false

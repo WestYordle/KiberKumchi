@@ -10,7 +10,7 @@ func _ready() -> void:
 	Signals.connect("wall", Callable(self, "_on_wall"))
 	Signals.connect("light_up",Callable(self,"_on_light_up"))
 	
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	velocity.x = direction * SPEED
 	if direction == -1:
 		$AnimatedSprite2D.flip_h = true
@@ -48,10 +48,10 @@ func _on_light_up(posX, _posY):
 	else:
 		direction = -1
 
-func _on_area_2d_body_entered(body: Node2D) -> void:
+func _on_area_2d_body_entered(_body: Node2D) -> void:
 	SPEED = 400
 
-func _on_area_2d_2_body_entered(body: Node2D) -> void:
+func _on_area_2d_2_body_entered(_body: Node2D) -> void:
 	Signals.emit_signal("die")
 	print("FFFFFFFF")
 	SPEED = 0

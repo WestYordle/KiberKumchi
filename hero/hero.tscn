@@ -83,6 +83,29 @@ animations = [{
 "texture": ExtResource("18_33f78")
 }],
 "loop": false,
+"name": &"running",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_iyby7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_uy2is")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_yuv4n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_g74me")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_g8rit")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_33f78")
+}],
+"loop": false,
 "name": &"walking",
 "speed": 5.0
 }]
@@ -158,7 +181,7 @@ shape = SubResource("RectangleShape2D_td813")
 position = Vector2(1, -3.8147e-06)
 scale = Vector2(0.257794, 0.281407)
 sprite_frames = SubResource("SpriteFrames_j7qxw")
-animation = &"idle"
+animation = &"running"
 autoplay = "idle"
 flip_h = true
 

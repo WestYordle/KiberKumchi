@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 
 const SPEED = 250.0
+var sprint_acceleration = 1
 
 var can_blink = false
 
@@ -15,7 +16,9 @@ func _ready() -> void:
 	Signals.connect("camera", Callable(self, "_on_camera"))
 	Signals.connect("item", Callable(self, "_on_item"))
 	
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
+	
+	sprint_acceleration = 1 + round(Input.get_action_strength("sprint"))
 	
 	if Input.is_action_just_pressed("light_up") and timer.is_stopped() and can_blink:
 		timer.start()
@@ -25,9 +28,11 @@ func _physics_process(delta: float) -> void:
 	
 	var direction := Input.get_axis("left", "right")
 	if direction:
-		velocity.x = direction * SPEED
+		velocity.x = direction * SPEED * sprint_acceleration
 		if self.is_on_wall():
 			anim.play("idle")
+		elif Input.is_action_pressed("sprint"):
+			anim.play("running")
 		else:
 			anim.play("walking")
 
@@ -44,5 +49,6 @@ func _on_camera(left, right):
 	$Camera2D.limit_left = left
 	$Camera2D.limit_right = right
 
-func _on_item(name):
-	can_blink = true
+func _on_item(item_name):
+	if item_name=="battery":
+		can_blink = true

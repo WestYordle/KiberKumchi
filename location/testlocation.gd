@@ -45,7 +45,7 @@ func _on_area_right_2d_2_body_entered(_body: Node2D) -> void:
 	print("СТЕНАААААА")
 
 
-func _on_area_left_2d_body_entered(body: Node2D) -> void:
+func _on_area_left_2d_body_entered(_body: Node2D) -> void:
 	Signals.emit_signal("wall")
 	print("ААААААА")
 

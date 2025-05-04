@@ -22,7 +22,7 @@ func load_dialoge():
 	file = file.get_as_text()
 	return JSON.parse_string(file)
 	
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if Input.is_action_just_pressed("use") and dialog_loag == true:
 		next_chat()
 		
